@@ -18,16 +18,15 @@ export default class Donates {
 		donateForm.addEventListener('submit', event => {
 			event.preventDefault()
 			const { target } = event
-			const amountInput = target.amount
-			const inputValue = amountInput.value
-			if (inputValue) {
+			const amountInput = target.amount.value
+			if (amountInput) {
 				const donateItem = new DonateItem()
-				const donateItemHTML = donateItem.render(inputValue)
+				const donateItemHTML = donateItem.render(amountInput)
 				donateContainer.append(donateItemHTML)
 
 				inputHTML.value = ''
 
-				this.#totalAmount.render(inputValue)
+				this.#totalAmount.render(amountInput)
 			}
 		})
 	}
